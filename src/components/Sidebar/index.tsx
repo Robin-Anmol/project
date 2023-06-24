@@ -239,7 +239,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       className={` min-h-screen  overflow-y-scroll overflow-x-hidden border-r border-borderColor lg:overflow-auto bg-white w-[100%]  text-gray-900 `}
     >
       {/* sidebar top */}
-      <div className="w-full flex  justify-between border-borderColor border-b px-5 py-6">
+      <div className="w-full flex  justify-between border-borderColor border-b px-5 py-7">
         <div className="flex  items-center gap-2">
           <Image width={24} height={24} src={Icons.LOGO_M} alt="Logo" />
           <p className="font-bold  text-lg   "> Project M.</p>
