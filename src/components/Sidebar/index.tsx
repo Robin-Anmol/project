@@ -114,7 +114,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       >
         {/* radical bg color  */}
         <div className=" w-16 h-16 bg-blubBgColor flex items-center justify-center absolute -top-[15%]   rounded-full ">
-          <div className=" w-full h-full flex items-center justify-center bg-gradient-radial  ">
+          <div className=" w-full h-full flex items-center justify-center bg-gradient-to-br from-bulbGradient to-transparent rounded-full  bg-opacity-5   ">
             <Image src={Icons.LAMP_ON} alt="LAMP_ON" className=" " />
           </div>
         </div>

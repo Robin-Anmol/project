@@ -32,12 +32,11 @@ const TaskCard: React.FC<TaskProps> = ({ task, index }) => {
         return (
           <div
             className="p-4 md:p-6 bg-white rounded-2xl"
-            ref={provided.innerRef}
-            // snapshot={snapshot}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            ref={provided.innerRef}
           >
-            <div className="flex mb-1 items-center justify-between">
+            <div className={`flex mb-1 items-center justify-between`}>
               <span
                 className={`rounded-md text-xs px-1.5 text-center py-1 font-medium `}
                 style={{

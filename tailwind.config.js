@@ -42,6 +42,7 @@ module.exports = {
         PLUS2IMAGE_BG: "#F4D7DA",
         PLUS2IMAGE_TEXT: "#D25B68",
         donebg: "#8BC48A",
+        bulbGradient: "rgba(251, 203, 24, 0.3)",
       },
     },
   },
