@@ -4,11 +4,13 @@ import React from "react";
 
 const MobileApp = () => {
   return (
-    <div className="px-4 md:px-6 lg:px-9 py-9 flex flex-col gap-9  ">
-      <div className="flex ">
+    <div className="px-4 md:px-6 lg:px-9 py-6 md:py-6 lg:py-9 flex flex-col gap-6 md:gap-9  ">
+      <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-0 ">
         {/* MobileApp section */}
-        <div className="flex flex-1 items-center gap-4 ">
-          <h1 className="text-Heading text-5xl   font-semibold ">Mobile App</h1>
+        <div className="flex flex-1  items-center gap-4 ">
+          <h1 className="text-Heading text-3xl  sm:text-3xl md:text-5xl   font-semibold ">
+            Mobile App
+          </h1>
           <div className="flex gap-2 items-center ">
             <Image src={Icons.EDIT_ICON} className=" w-6 h-6" alt="edit_icon" />
             <Image src={Icons.LINK} className=" w-6 h-6  " alt="link_icon" />
@@ -42,30 +44,30 @@ const MobileApp = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         {/* filter section */}
 
         <div className="flex gap-3">
           {/* filter button  */}
 
-          <button className="outline-none px-4 py-1.5 flex items-center gap-2 border border-Typography rounded-md">
+          <button className="outline-none px-1 md:px-4  md:py-1.5 flex items-center gap-2 border border-Typography rounded-md">
             <Image src={Icons.FILTER} className="" alt="filter " />
             <span
-              className="text-md font-medium text-Typography
+              className="text-md hidden md:flex font-medium text-Typography
             "
             >
               Filter
             </span>
             <Image
               src={Icons.ARROW_DOWN}
-              className="text-Typography opacity-70"
+              className="text-Typography  opacity-70"
               alt="filter "
             />
           </button>
-          <button className="outline-none px-4 py-1.5 flex items-center gap-2 border border-Typography rounded-md">
+          <button className="outline-none px-1 md:px-4 py-1.5 flex items-center gap-2 border border-Typography rounded-md">
             <Image src={Icons.FILTER_CALENDER} className="" alt="filter " />
             <span
-              className="text-md font-medium text-Typography
+              className="text-md hidden md:flex font-medium text-Typography
             "
             >
               Today
@@ -83,7 +85,7 @@ const MobileApp = () => {
           <button className="outline-none px-4 py-1.5 flex items-center gap-2 border border-Typography rounded-md">
             <Image src={Icons.MEMBERS} className="" alt="filter " />
             <span
-              className="text-md font-medium text-Typography
+              className="text-md hidden md:flex font-medium text-Typography
             "
             >
               Share

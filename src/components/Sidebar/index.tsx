@@ -1,5 +1,5 @@
 import React, { SetStateAction, useState } from "react";
-import { HiMenuAlt3, Icons } from "@/utils";
+import { AiOutlineClose, HiMenuAlt3, Icons } from "@/utils";
 import Image from "next/image";
 import { menus, myProjects } from "@/utils/data";
 interface SidebarProps {
@@ -34,11 +34,11 @@ const Sidebar: React.FC<SidebarProps> = ({
           alt="ARROW_BACK"
           onClick={() => setOpen(false)}
         />
-        <HiMenuAlt3
+        <AiOutlineClose
           size={28}
           className="   lg:hidden cursor-pointer  
             duration-75 hover:scale-95"
-          onClick={() => setMobile(!mobile)}
+          onClick={() => setMobile(false)}
         />
       </div>
       <div className="mx-3 py-6 border-b border-borderColor">

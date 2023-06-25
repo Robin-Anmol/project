@@ -20,7 +20,7 @@ const DraggableElement: React.FC<DroppableProps> = ({ panel, panelKey }) => {
       ? "FFA500"
       : "8BC48A";
   return (
-    <div className="p-6 rounded-2xl  bg-blubBgColor min-h-screen">
+    <div className="p-4 md:p-6 rounded-2xl  bg-blubBgColor  lg:min-h-screen">
       <div
         className={`flex items-center border-b-[3px]  pb-4   justify-between `}
         style={{ borderColor: `#${borderColor}` }}
@@ -50,7 +50,7 @@ const DraggableElement: React.FC<DroppableProps> = ({ panel, panelKey }) => {
           <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="grid mt-6 grid-cols-1 gap-6 "
+            className="grid mt-4 md:mt-6 grid-cols-1 gap-6 "
           >
             {panel.tasks.map((task: TaskCardProps, index: number) => (
               <TaskCard key={task._task_id} task={task} index={index} />

@@ -1,4 +1,5 @@
 export { HiMenuAlt3 } from "react-icons/hi";
+export { AiOutlineClose } from "react-icons/ai";
 export const Icons = {
   LOGO_M: require("../../assets/Icons/Group 7.svg"),
   ARROW_BACK: require("../../assets/Icons/Group 639.svg"),

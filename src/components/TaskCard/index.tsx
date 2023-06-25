@@ -31,7 +31,7 @@ const TaskCard: React.FC<TaskProps> = ({ task, index }) => {
       {(provided, snapshot) => {
         return (
           <div
-            className="p-6 bg-white rounded-2xl"
+            className="p-4 md:p-6 bg-white rounded-2xl"
             ref={provided.innerRef}
             // snapshot={snapshot}
             {...provided.draggableProps}

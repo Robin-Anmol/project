@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({
   setMobile,
 }) => {
   return (
-    <div className="w-full relative flex items-center  justify-between border-borderColor border-b px-9 py-[1.25rem]  ">
+    <div className="w-full relative flex items-center  justify-between border-borderColor border-b px-4 md:px-6 lg:px-9  py-[1.25rem]  ">
       {/* search bar  */}
 
       <div className="flex-2/4 flex relative  h-10 gap-6    ">
@@ -30,7 +30,9 @@ const Navbar: React.FC<NavbarProps> = ({
         )}
         {!mobile && (
           <HiMenuAlt3
-            className="cursor-pointer lg:hidden rotate-180"
+            size={28}
+            className="self-center   lg:hidden cursor-pointer  
+            duration-75 hover:scale-95"
             onClick={() => setMobile(true)}
           />
         )}
@@ -49,28 +51,28 @@ const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
       {/* right container  */}
-      <div className="flex items-center   gap-10  ">
+      <div className="flex items-center   gap-3 md:gap-10  ">
         {/* 3 three  container*/}
         <div className="flex gap-5 ">
           <Image
             src={Icons.SEARCH_ICON}
-            className=" w-6 h-6 lg:hidden"
+            className=" w-6 h-6 text-Typography   lg:hidden"
             alt="calendar icon"
           />
           <Image
             src={Icons.CALENDAR_ICON}
-            className="w-6 h-6"
+            className="w-6  h-6 hidden md:flex "
             alt="calendar icon"
           />
           <Image
             src={Icons.MESSAGES_QUESTION}
-            className="w-6 h-6"
+            className="w-6 h-6 hidden md:flex"
             alt="message question icon "
           />
-          <div className="relative ">
+          <div className="relative hidden md:flex ">
             <Image
               src={Icons.NOTIFICATION_ICON}
-              className="w-6 h-6"
+              className="w-6 h-6 "
               alt="notification icon "
             />
             <span className="w-1.5 h-1.5 absolute top-0 right-1 rounded-full bg-redTagColor"></span>
@@ -81,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-6 ">
           {/* name ,address  */}
 
-          <div className="flex flex-col items-end ">
+          <div className="flex flex-col items-end hidden md:flex ">
             <span className="text-Heading text-md font-medium">
               Anima Agrawal
             </span>
@@ -91,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <Image src={Images.GIRL1_IMAGE} className="" alt="Avatar_images" />
             <Image
               src={Icons.ARROW_DOWN}
-              className=""
+              className=" hidden md:flex"
               alt="ARROW_DOWN_images"
             />
           </div>
