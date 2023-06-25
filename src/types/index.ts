@@ -1,4 +1,8 @@
 export interface TaskCardPanelProps {
+  [key: string]: TaskPanelProps;
+}
+
+export interface TaskPanelProps {
   _id: string;
   isTodo: boolean;
   title: "To Do" | "On Progress" | "Done";

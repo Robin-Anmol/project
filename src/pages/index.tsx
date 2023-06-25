@@ -27,7 +27,7 @@ export default function Home() {
       <div
         className={`z-20 w-[100%] overflow-y-scroll overflow-x-hidden  absolute h-[100%]  ease-in-out duration-500 ${
           mobile
-            ? "top-0 left-[0%] w-[100%] xs:w-[70%] md:w-[40%]"
+            ? "top-0 left-[0%] sm:w-[60%] xs:w-[80%] md:w-[40%]"
             : " top-0 -left-full"
         } `}
       >
@@ -36,7 +36,12 @@ export default function Home() {
 
       {/* Mobile Sidebar-end */}
       <div className="w-[100%] h-[100%]   overflow-y-scroll overflow-x-hidden ">
-        <Navbar />
+        <Navbar
+          open={open}
+          setOpen={setOpen}
+          mobile={mobile}
+          setMobile={setMobile}
+        />
         <MobileApp />
         <DragAndDropBoard />
       </div>

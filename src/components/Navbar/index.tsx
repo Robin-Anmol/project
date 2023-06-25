@@ -1,22 +1,52 @@
-import { Icons, Images } from "@/utils";
+import { HiMenuAlt3, Icons, Images } from "@/utils";
 import Image from "next/image";
-import React from "react";
-
-const Navbar = () => {
+import React, { SetStateAction } from "react";
+interface NavbarProps {
+  open?: boolean;
+  setOpen?: React.Dispatch<SetStateAction<boolean>> | undefined;
+  mobile?: boolean;
+  setMobile?: React.Dispatch<SetStateAction<boolean>> | undefined;
+}
+const Navbar: React.FC<NavbarProps> = ({
+  open,
+  setOpen,
+  mobile,
+  setMobile,
+}) => {
   return (
-    <div className="w-full flex items-center  justify-between border-borderColor border-b px-9 py-[1.25rem]  ">
+    <div className="w-full relative flex items-center  justify-between border-borderColor border-b px-9 py-[1.25rem]  ">
       {/* search bar  */}
-      <div className="flex-2/4 relative flex h-10    ">
-        <input
-          type="text"
-          placeholder="Search for anything..."
-          className="w-[100%] outline-none border-none text-sm  bg-blubBgColor placeholder:text-Typography rounded-md px-16   "
-        />
-        <Image
-          className=" absolute w-6 h-6 left-5  translate-y-[30%]  "
-          src={Icons.SEARCH_ICON}
-          alt="search icon"
-        />
+
+      <div className="flex-2/4 flex relative  h-10 gap-6    ">
+        {!open && (
+          <Image
+            width={24}
+            height={24}
+            className="cursor-pointer rotate-180"
+            src={Icons.ARROW_BACK}
+            alt="ARROW_BACK"
+            onClick={() => setOpen(true)}
+          />
+        )}
+        {!mobile && (
+          <HiMenuAlt3
+            className="cursor-pointer lg:hidden rotate-180"
+            onClick={() => setMobile(true)}
+          />
+        )}
+
+        <div className="relative hidden lg:flex">
+          <input
+            type="text"
+            placeholder="Search for anything..."
+            className="w-[100%] outline-none border-none text-sm  bg-blubBgColor placeholder:text-Typography rounded-md px-16   "
+          />
+          <Image
+            className=" absolute w-6 h-6 left-5  translate-y-[30%]  "
+            src={Icons.SEARCH_ICON}
+            alt="search icon"
+          />
+        </div>
       </div>
       {/* right container  */}
       <div className="flex items-center   gap-10  ">

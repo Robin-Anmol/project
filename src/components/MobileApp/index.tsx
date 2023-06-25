@@ -4,7 +4,7 @@ import React from "react";
 
 const MobileApp = () => {
   return (
-    <div className="px-9 py-9 flex flex-col gap-9  ">
+    <div className="px-4 md:px-6 lg:px-9 py-9 flex flex-col gap-9  ">
       <div className="flex ">
         {/* MobileApp section */}
         <div className="flex flex-1 items-center gap-4 ">

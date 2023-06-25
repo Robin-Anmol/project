@@ -16,7 +16,7 @@ const TaskCard: React.FC<TaskProps> = ({ task, index }) => {
       ? "rgba(251, 203, 24, .2)"
       : task.priority.toString() === "high"
       ? "rgba(216,114,125,.1)"
-      : "rgba(131,194,157,.2);";
+      : "rgba(131,194,157,.2)";
   const priorityColor =
     task.priority.toString() === "low"
       ? "D58D49"
@@ -75,7 +75,7 @@ const TaskCard: React.FC<TaskProps> = ({ task, index }) => {
                     <Image
                       key={index}
                       src={assign}
-                      className="-mr-2 "
+                      className="-mr-2 w-7 h-8 "
                       alt={`BOY${index}_IMAGE`}
                     />
                   );
@@ -88,7 +88,7 @@ const TaskCard: React.FC<TaskProps> = ({ task, index }) => {
                     alt="TASKCARD_MESSAGE_ICON"
                     className=""
                   />
-                  <span className="text-Typography font-medium text-xs">{`${task.comments} comments`}</span>
+                  <span className="text-Typography font-medium text-xs xxl:text-sm">{`${task.comments} comments`}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Image
@@ -96,7 +96,7 @@ const TaskCard: React.FC<TaskProps> = ({ task, index }) => {
                     alt="TASKCARD_FILE_ICON"
                     className=""
                   />
-                  <span className="text-Typography font-medium text-xs">{`${task.files} files`}</span>
+                  <span className="text-Typography font-medium  text-xs xxl:text-sm">{`${task.files} files`}</span>
                 </div>
               </div>
             </div>

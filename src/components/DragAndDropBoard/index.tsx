@@ -4,72 +4,71 @@ import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import DraggableElement from "../DraggableTaskCard";
 
 import { KanbanBoardData } from "@/utils/data";
+import { TaskCardPanelProps, TaskCardProps, TaskPanelProps } from "@/types";
 
 const DragAndDropBoard = () => {
-  // const lists = useMemo(() => ["todo", "inProgress", "done"], []);
-  // const getItems = (count: number, prefix: string) =>
-  //   Array.from({ length: count }).map((k) => {
-  //     const randomId = Math.floor(Math.random() * 1000);
-  //     return {
-  //       id: `item-${Date.now() + randomId}`,
-  //       prefix,
-  //       content: `item ${Date.now() + randomId}`,
-  //     };
-  //   });
+  const KanbanPanels = useMemo(() => ["To Do", "On Progress", "Done"], []);
 
-  // const removeFromList = (list: ItemType[], index: number) => {
-  //   const result = Array.from(list);
-  //   const [removed] = result.splice(index, 1);
-  //   return [removed, result];
-  // };
-
-  // const addToList = useCallback((list: ItemType[], index: number, element) => {
-  //   const result = Array.from(list);
-  //   result.splice(index, 0, element);
-  //   return result;
-  // }, []);
-
-  // const onDragEnd = useCallback(
-  //   (result: DropResult) => {
-  //     if (!result.destination) {
-  //       return;
-  //     }
-
-  //     const listCopy: typeof elements = { ...elements };
-  //     const sourceList = listCopy?.[result.source.droppableId];
-
-  //     const [removedElement, newSourceList] = removeFromList(
-  //       sourceList,
-  //       result.source.index
-  //     );
-
-  //     listCopy[result.source.droppableId] = newSourceList;
-  //     const destinationList = listCopy[result.destination.droppableId];
-  //     listCopy[result.destination.droppableId] = addToList(
-  //       destinationList,
-  //       result.destination.index,
-  //       removedElement
-  //     );
-  //     setElements(listCopy);
-  //     console.log("DD", result, sourceList, listCopy);
-  //   },
-  //   [elements, addToList]
-  // );
-
-  // useEffect(() => {
-  //   setElements(generateLists());
-  // }, [generateLists]);
-
-  const onDragEnd = () => {
-    console.log("dragging ");
+  const [KanbanTask, setKanbanTask] =
+    useState<TaskCardPanelProps>(KanbanBoardData);
+  const removeFromList = (list: TaskCardProps[], index: number) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(index, 1);
+    return [removed, result];
   };
+
+  const addToList = useCallback(
+    (list: TaskCardProps[], index: number, KanbanTask: TaskCardProps) => {
+      const result = Array.from(list);
+
+      result.splice(index, 0, KanbanTask);
+      return result;
+    },
+    []
+  );
+
+  const onDragEnd = useCallback(
+    (result: DropResult) => {
+      if (!result.destination) {
+        return;
+      }
+
+      const KanbanList: typeof KanbanTask = { ...KanbanTask };
+      const sourceList = KanbanList?.[result.source.droppableId].tasks;
+
+      console.log(sourceList);
+      const [removedElement, newSourceList] = removeFromList(
+        sourceList,
+        result.source.index
+      );
+
+      console.log(newSourceList);
+      KanbanList[result.source.droppableId].tasks = newSourceList;
+      const destinationList = KanbanList[result.destination.droppableId].tasks;
+      KanbanList[result.destination.droppableId].tasks = addToList(
+        destinationList,
+        result.destination.index,
+        removedElement
+      );
+      setKanbanTask(KanbanList);
+    },
+    [KanbanTask, addToList]
+  );
   return (
-    <div className="px-9 overflow-x-scroll w-full   ">
+    <div className="px-4 md:px-6 lg:px-9   overflow-x-scroll w-full   ">
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-3  overflow-x-scroll w-full gap-6">
-          {KanbanBoardData.map((panel, index) => (
-            <DraggableElement panel={panel} key={panel._id} />
-          ))}
+        <div className="grid  lg:grid-cols-3  overflow-x-scroll w-full gap-6">
+          {KanbanPanels.map((panel, index) => {
+            // console.log(panel);
+            // console.log(KanbanBoardData[panel]);
+            return (
+              <DraggableElement
+                panel={KanbanBoardData[panel]}
+                key={`${panel}-${index}`}
+                panelKey={panel}
+              />
+            );
+          })}
         </div>
       </DragDropContext>
     </div>

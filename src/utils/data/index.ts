@@ -15,8 +15,10 @@ export const myProjects = [
   { name: "Wireframes ", link: "wireframes", color: "76A5EA" },
 ];
 
-export const KanbanBoardData: TaskCardPanelProps[] = [
-  {
+export const KanbanPanels: string[] = ["To Do", "On Progress", "Done"];
+
+export const KanbanBoardData: TaskCardPanelProps = {
+  "To Do": {
     _id: uuidV4(),
     isTodo: true,
     title: "To Do",
@@ -59,7 +61,8 @@ export const KanbanBoardData: TaskCardPanelProps[] = [
       },
     ],
   },
-  {
+
+  "On Progress": {
     _id: uuidV4(),
     isTodo: false,
     title: "On Progress",
@@ -98,7 +101,8 @@ export const KanbanBoardData: TaskCardPanelProps[] = [
       },
     ],
   },
-  {
+
+  Done: {
     _id: uuidV4(),
     isTodo: false,
     title: "Done",
@@ -115,4 +119,4 @@ export const KanbanBoardData: TaskCardPanelProps[] = [
       },
     ],
   },
-];
+};

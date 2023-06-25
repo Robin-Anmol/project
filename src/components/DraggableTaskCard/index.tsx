@@ -1,15 +1,16 @@
 import React from "react";
-import { Droppable } from "react-beautiful-dnd";
+import { StrictModeDroppable as Droppable } from "@/utils/helpers/StrictModeDroppable";
 import TaskCard from "../TaskCard";
-import { TaskCardPanelProps, TaskCardProps } from "@/types";
+import { TaskCardPanelProps, TaskCardProps, TaskPanelProps } from "@/types";
 import { Icons } from "@/utils";
 import Image from "next/image";
 
 export type DroppableProps = {
-  panel: TaskCardPanelProps;
+  panel: TaskPanelProps;
+  panelKey: string;
 };
 
-const DraggableElement: React.FC<DroppableProps> = ({ panel }) => {
+const DraggableElement: React.FC<DroppableProps> = ({ panel, panelKey }) => {
   const totalTask = panel.tasks.length;
 
   const borderColor =
@@ -19,7 +20,7 @@ const DraggableElement: React.FC<DroppableProps> = ({ panel }) => {
       ? "FFA500"
       : "8BC48A";
   return (
-    <div className="p-6 rounded-2xl bg-blubBgColor min-h-screen">
+    <div className="p-6 rounded-2xl  bg-blubBgColor min-h-screen">
       <div
         className={`flex items-center border-b-[3px]  pb-4   justify-between `}
         style={{ borderColor: `#${borderColor}` }}
@@ -32,7 +33,7 @@ const DraggableElement: React.FC<DroppableProps> = ({ panel }) => {
           <span className="text-Heading text-md font-semibold">
             {panel.title}
           </span>
-          <span className="w-5 h-5 text-sm text-center  bg-borderColor rounded-full ">
+          <span className="w-5 h-5 text-sm text-center text-Typography  bg-borderColor rounded-full ">
             {totalTask}
           </span>
         </div>
@@ -44,14 +45,14 @@ const DraggableElement: React.FC<DroppableProps> = ({ panel }) => {
           />
         )}
       </div>
-      <Droppable droppableId={`${panel._id}`}>
+      <Droppable droppableId={panelKey}>
         {(provided) => (
           <div
-            className="grid mt-6 grid-cols-1 gap-6"
             {...provided.droppableProps}
             ref={provided.innerRef}
+            className="grid mt-6 grid-cols-1 gap-6 "
           >
-            {panel.tasks?.map((task: TaskCardProps, index: number) => (
+            {panel.tasks.map((task: TaskCardProps, index: number) => (
               <TaskCard key={task._task_id} task={task} index={index} />
             ))}
             {provided.placeholder}

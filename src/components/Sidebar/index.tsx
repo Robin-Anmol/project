@@ -9,7 +9,6 @@ interface SidebarProps {
   setMobile?: React.Dispatch<SetStateAction<boolean>> | undefined;
 }
 
-
 const Sidebar: React.FC<SidebarProps> = ({
   mobile,
   open,
@@ -30,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <Image
           width={24}
           height={24}
-          className="cursor-pointer"
+          className="cursor-pointer hidden lg:flex"
           src={Icons.ARROW_BACK}
           alt="ARROW_BACK"
           onClick={() => setOpen(false)}
