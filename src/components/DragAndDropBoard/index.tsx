@@ -55,9 +55,9 @@ const DragAndDropBoard = () => {
     [KanbanTask, addToList]
   );
   return (
-    <div className="px-4 md:px-6 lg:px-9   overflow-x-scroll w-full   ">
+    <div className="px-4 md:px-6 lg:px-9    w-full   ">
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid  lg:grid-cols-3  overflow-x-scroll w-full gap-6">
+        <div className="grid  lg:grid-cols-3   w-full gap-6">
           {KanbanPanels.map((panel, index) => {
             // console.log(panel);
             // console.log(KanbanBoardData[panel]);
