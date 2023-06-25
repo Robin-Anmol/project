@@ -31,7 +31,12 @@ export default function Home() {
             : " top-0 -left-full"
         } `}
       >
-        <Sidebar mobile={mobile} setMobile={setMobile} />
+        <Sidebar
+          open={open}
+          setOpen={setOpen}
+          mobile={mobile}
+          setMobile={setMobile}
+        />
       </div>
       {mobile && (
         <div

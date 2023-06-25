@@ -2,10 +2,10 @@ import { HiMenuAlt3, Icons, Images } from "@/utils";
 import Image from "next/image";
 import React, { SetStateAction } from "react";
 interface NavbarProps {
-  open?: boolean;
-  setOpen?: React.Dispatch<SetStateAction<boolean>> | undefined;
-  mobile?: boolean;
-  setMobile?: React.Dispatch<SetStateAction<boolean>> | undefined;
+  open: boolean;
+  setOpen: React.Dispatch<SetStateAction<boolean>>;
+  mobile: boolean;
+  setMobile: React.Dispatch<SetStateAction<boolean>>;
 }
 const Navbar: React.FC<NavbarProps> = ({
   open,
@@ -83,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-6 ">
           {/* name ,address  */}
 
-          <div className="flex flex-col items-end hidden md:flex ">
+          <div className=" flex-col items-end hidden md:flex ">
             <span className="text-Heading text-md font-medium">
               Anima Agrawal
             </span>

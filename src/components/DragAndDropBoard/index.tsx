@@ -14,7 +14,7 @@ const DragAndDropBoard = () => {
   const removeFromList = (list: TaskCardProps[], index: number) => {
     const result = Array.from(list);
     const [removed] = result.splice(index, 1);
-    return [removed, result];
+    return [removed, result] as [TaskCardProps, TaskCardProps[]];
   };
 
   const addToList = useCallback(

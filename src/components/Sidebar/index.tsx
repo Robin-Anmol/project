@@ -3,10 +3,10 @@ import { AiOutlineClose, HiMenuAlt3, Icons } from "@/utils";
 import Image from "next/image";
 import { menus, myProjects } from "@/utils/data";
 interface SidebarProps {
-  open?: boolean;
-  setOpen?: React.Dispatch<SetStateAction<boolean>> | undefined;
-  mobile?: boolean;
-  setMobile?: React.Dispatch<SetStateAction<boolean>> | undefined;
+  open: boolean;
+  setOpen: React.Dispatch<SetStateAction<boolean>>;
+  mobile: boolean;
+  setMobile: React.Dispatch<SetStateAction<boolean>>;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
